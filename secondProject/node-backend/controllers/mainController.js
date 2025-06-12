@@ -27,8 +27,9 @@ router.get('/Test', async (req, res) => {
 let option1 = 'http://localhost:8080/generate_meeting';
 router.get('/generateText', async (req, res) => {
     try {
+        const { keyword, num, textlength } = req.query;
         const response = await axios.get(option1, {
-            params: { keyword: '금융', num: 3, textlength: 100 }
+            params: { keyword, num, textlength }
         });
         res.send(response.data);
     } catch (error) {

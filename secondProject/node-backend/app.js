@@ -6,7 +6,7 @@ var app = express();
 // 미들웨어
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // 뷰 엔진 설정 (HTML 렌더링)
 app.set('views', path.join(__dirname, 'views'));
@@ -16,7 +16,7 @@ app.engine('html', require('ejs').renderFile);
 
 
 app.get("/", function (req, res) {
-    res.send("Hello World");
+    res.sendFile(__dirname, 'public', 'index.html');
 });
 
 // 라우터

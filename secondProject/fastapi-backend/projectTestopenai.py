@@ -33,6 +33,12 @@ async def generate_meeting(keyword: str, num: int, textlength: int):
         temperature=0.7,
         max_tokens=textlength
     )
-    result = response.choices[0].text
+    result = response.choices[0].text.strip()
+    result = result.replace('\n\n', '\n')
+    result = result.replace('\n', ' ')
     
-    return {"output" : result}
+    file_path = "generated_meetingtext.txt"
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(result)
+    
+    return {result}

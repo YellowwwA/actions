@@ -8,7 +8,7 @@ cd actions
 
 git pull;
 
-SRC=/work/actions/secondProject/hello
+SRC=/work/actions/secondProject/node-backend
 DEST=/$HOME/deploy
 
 rm -rf $DEST
